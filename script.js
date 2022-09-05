@@ -17,15 +17,11 @@
 // ------reduce, spread--------------------/
 
 function flatten(arr) {
-  let flatArray = [...arr];
-  flatArray = arr.reduce((acc, element) => {
-    if (Array.isArray(element)) {
-      return [...acc, ...flatten(element)];
-    } else {
-      return [...acc, element];
-    }
+  return arr.reduce((acc, element) => {
+    return Array.isArray(element)
+      ? [...acc, ...flatten(element)]
+      : [...acc, element];
   }, []);
-  return flatArray;
 }
 
 console.log(flatten([1, 2, {}, [3, [4], 5], [6, "seven"]]));
