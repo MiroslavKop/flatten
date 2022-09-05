@@ -16,12 +16,14 @@
 
 // ------reduce, spread--------------------/
 
-// function flatten(arr) {
-//   return arr.reduce((acc, element) => {
-//     return Array.isArray(element)
-//       ? [...acc, ...flatten(element)]
-//       : [...acc, element];
-//   }, []);
-// }
+function flatten(arr) {
+  return arr.reduce(
+    (acc, element) =>
+      Array.isArray(element)
+        ? [...acc, ...flatten(element)]
+        : [...acc, element],
+    []
+  );
+}
 
-// console.log(flatten([1, 2, {}, [3, [4], 5], [6, "seven"]]));
+console.log(flatten([1, 2, {}, [3, [4], 5], [6, "seven"]]));
